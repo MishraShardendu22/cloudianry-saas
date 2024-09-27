@@ -1,7 +1,7 @@
 import { SignUp } from '@clerk/nextjs'
 import { Card } from '@/components/ui/card'
 import Link from 'next/link'
-import { UserPlus, Lock } from 'lucide-react'
+import { UserPlus } from 'lucide-react'
 
 export default function Page() {
   return (
@@ -25,7 +25,7 @@ export default function Page() {
                   'bg-gray-700 text-md border-purple-500 text-purple-400 focus:ring-2 focus:ring-indigo-500',
                 footerActionLink: 'text-purple-300 hover:text-purple-200',
                 formFieldLabel: 
-                  'text-purple-200 text-md flex items-center',
+                  'text-purple-200 text-md',
                 formFieldInputOptional: 
                   'text-purple-400 text-md',
               },
@@ -33,8 +33,8 @@ export default function Page() {
           />
           <div className="mt-6 text-center">
             <Link href="/sign-in">
-              <button className="flex items-center justify-center text-lg font-semibold text-purple-500 hover:bg-purple-600 hover:text-white transition-all duration-300 rounded-lg px-4 py-2 border border-purple-500">
-                <Lock className="mr-2" /> Already have an account? Sign In
+              <button className="text-lg font-semibold text-purple-500 hover:bg-purple-600 hover:text-white transition-all duration-300 rounded-lg px-4 py-2 border border-purple-500">
+                Already have an account? Sign In
               </button>
             </Link>
           </div>

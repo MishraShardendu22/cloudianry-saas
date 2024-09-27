@@ -1,7 +1,8 @@
 import { SignIn } from '@clerk/nextjs'
 import { Card } from '@/components/ui/card'
 import Link from 'next/link'
-import { User, Lock } from 'lucide-react'
+import { UserPlus } from 'lucide-react'
+
 
 export default function Page() {
   return (
@@ -9,14 +10,13 @@ export default function Page() {
       <Card className="w-full max-w-md bg-gray-800 border border-purple-500 shadow-lg shadow-indigo-500/50">
         <div className="p-6">
           <h1 className="text-3xl font-bold text-center mb-6 text-purple-300">
-            <User className="inline-block mr-2" /> Sign In
-          </h1>
+          <UserPlus className="inline-block mr-2" />Sign In</h1>
           <SignIn 
             appearance={{
               elements: {
                 formButtonPrimary: 
                   'text-md bg-purple-600 hover:bg-purple-700 text-white',
-                card: 'bg-transparent shadow-none',
+                card: ' bg-transparent shadow-none',
                 headerTitle: 'text-md text-purple-300',
                 headerSubtitle: 'text-md text-indigo-200',
                 socialButtonsBlockButton: 
@@ -25,19 +25,19 @@ export default function Page() {
                   'bg-gray-700 text-md border-purple-500 text-purple-400 focus:ring-2 focus:ring-indigo-500',
                 footerActionLink: 'text-purple-300 hover:text-purple-200',
                 formFieldLabel: 
-                  'text-purple-200 text-md',
+                  'text-purple-200 text-md', // Label color
                 formFieldInputOptional: 
-                  'text-purple-400 text-md',
+                  'text-purple-400 text-md', // Optional text color
               },
             }}
           />
-          <div className="mt-6 text-center">
-            <Link href="/sign-up">
-              <button className="text-lg font-semibold text-purple-500 hover:bg-purple-600 hover:text-white transition-all duration-300 rounded-lg px-4 py-2 border border-purple-500">
-                <Lock className="inline-block mr-2" /> Don`t have an account? Sign Up
-              </button>
-            </Link>
-          </div>
+                      <div className="mt-6 text-center">
+                <Link href="/sign-up">
+                    <button className="text-lg font-semibold text-purple-500 hover:bg-purple-600 hover:text-white transition-all duration-300 rounded-lg px-4 py-2 border border-purple-500">
+                    Dont`t have an account? Sign Up
+                    </button>
+                </Link>
+            </div>
         </div>
       </Card>
     </div>
