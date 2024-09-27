@@ -1,10 +1,10 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import { PrismaClient } from "@prisma/client/extension";
 import { NextRequest,NextResponse } from "next/server";
+import { PrismaClient } from "@prisma/client";
 
 const prisma = new PrismaClient();
 
-export async function get(req: NextRequest){
+export async function GET(req: NextRequest){
     try{
         const videos = await prisma.video.findMany(
             {
@@ -15,10 +15,13 @@ export async function get(req: NextRequest){
         )
         return NextResponse.json(
             {
-                data : videos,
-                status : "200",
+                data: videos,
+            },
+            {
+                status: 200,
             }
-        )
+        );
+        
     }catch(error){
         console.log("There was an Error in the get request",error);
         return NextResponse.json(
