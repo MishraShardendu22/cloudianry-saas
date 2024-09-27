@@ -13,7 +13,6 @@ export async function get(req: NextRequest){
                 }
             }
         )
-
         return NextResponse.json(
             {
                 data : videos,
