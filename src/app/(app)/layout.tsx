@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 "use client";
 
 import React, { useState } from "react";
@@ -22,11 +21,9 @@ const sidebarItems = [
   { href: "/video-upload", icon: UploadIcon, label: "Video Upload" },
 ];
 
-export default function AppLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+import { ReactNode } from "react";
+
+export default function AppLayout({ children }: { children: ReactNode }) {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const pathname = usePathname();
   const router = useRouter();
@@ -41,6 +38,7 @@ export default function AppLayout({
     try {
       await signOut();
     } catch (error) {
+      console.log("There was an error in signing out",error)
       toast.error("Sign out failed. Please try again.");
     }
   };
@@ -66,22 +64,22 @@ export default function AppLayout({
               </label>
             </div>
             <div className="flex-1">
-              <Link href="/" onClick={handleLogoClick}>
-                <div className="btn btn-ghost normal-case text-2xl font-light tracking-tight cursor-pointer text-white">
+              <Link href="/home" onClick={handleLogoClick}>
+                <h1 className="text-2xl font-light text-white tracking-tight cursor-pointer">
                   Cloudinary Showcase
-                </div>
+                </h1>
               </Link>
             </div>
             <div className="flex-none flex items-center space-x-4">
               {user && (
                 <>
                   <div className="avatar">
-                    <div className="w-8 h-8 rounded-full">
+                    <div className="w-10 h-10 rounded-full ring ring-primary ring-offset-2">
                       <Image
                         src={user.imageUrl}
                         alt={user.username || user.emailAddresses[0].emailAddress}
-                        width={32}
-                        height={32}
+                        width={40}
+                        height={40}
                         className="rounded-full"
                       />
                     </div>
@@ -92,6 +90,7 @@ export default function AppLayout({
                   <button
                     onClick={handleSignOut}
                     className="btn btn-ghost btn-circle"
+                    aria-label="Sign out"
                   >
                     <LogOutIcon className="h-6 w-6 text-white" />
                   </button>
@@ -109,7 +108,7 @@ export default function AppLayout({
         <aside className="bg-gradient-to-b from-gray-800 to-gray-900 w-64 h-full flex flex-col">
           <div className="flex items-center justify-center py-4">
             <ImageIcon className="w-10 h-10 text-primary" />
-          </div>
+            </div>
           <ul className="menu p-4 w-full text-white flex-grow">
             {sidebarItems.map((item) => (
               <li key={item.href} className="mb-2">
@@ -117,7 +116,7 @@ export default function AppLayout({
                   href={item.href}
                   className={`flex items-center space-x-4 px-4 py-2 rounded-lg transition-colors duration-200 ${
                     pathname === item.href
-                      ? "bg-primary text-white"
+                      ? "bg-primary text-white font-bold"
                       : "hover:bg-gray-700"
                   }`}
                   onClick={() => setSidebarOpen(false)}
@@ -144,4 +143,3 @@ export default function AppLayout({
     </div>
   );
 }
-  

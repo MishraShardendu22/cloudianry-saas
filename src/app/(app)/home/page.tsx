@@ -39,26 +39,34 @@ function Home() {
     }, []);
 
     if (loading) {
-        return <div className="text-indigo-400 text-3xl font-semibold text-center py-20">Loading...</div>;
+        return (
+            <div className="flex items-center justify-center min-h-screen bg-gradient-to-br from-indigo-900 via-purple-800 to-violet-600">
+                <div className="text-indigo-200 text-3xl font-semibold animate-pulse">Loading...</div>
+            </div>
+        );
     }
 
     return (
-        <div className="container mx-auto p-6 bg-gradient-to-br from-indigo-900 via-purple-800 to-violet-600 text-violet-300 min-h-screen">
-            <h1 className="text-4xl font-extrabold text-center mb-6 border-b-2 border-purple-500 pb-2">Videos</h1>
-            {error && <div className="text-red-500 text-center text-lg">{error}</div>}
-            {videos.length === 0 ? (
-                <div className="text-center text-lg text-gray-500">No videos available</div>
-            ) : (
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-                    {videos.map((video) => (
-                        <VideoCard
-                            key={video.id}
-                            video={video}
-                            onDownload={handleDownload}
-                        />
-                    ))}
-                </div>
-            )}
+        <div className="rounded-xl min-h-screen bg-gradient-to-br from-indigo-900 via-purple-800 to-violet-600 text-violet-100">
+            <div className="container mx-auto p-6">
+                <h1 className="text-5xl font-extrabold text-center mb-10 text-violet-100 shadow-lg">Videos</h1>
+                {error && <div className="text-red-400 text-center text-lg mb-6 bg-red-900 bg-opacity-50 p-4 rounded-lg">{error}</div>}
+                {videos.length === 0 ? (
+                    <div className="text-center text-xl text-gray-300 bg-violet-800 bg-opacity-50 p-8 rounded-lg shadow-lg">
+                        No videos available
+                    </div>
+                ) : (
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                        {videos.map((video) => (
+                            <VideoCard
+                                key={video.id}
+                                video={video}
+                                onDownload={handleDownload}
+                            />
+                        ))}
+                    </div>
+                )}
+            </div>
         </div>
     );
 }
