@@ -38,7 +38,7 @@ export default function AppLayout({ children }: { children: ReactNode }) {
     try {
       await signOut();
     } catch (error) {
-      console.log("There was an error in signing out",error)
+      console.log("There was an error in signing out", error);
       toast.error("Sign out failed. Please try again.");
     }
   };
@@ -65,8 +65,8 @@ export default function AppLayout({ children }: { children: ReactNode }) {
             </div>
             <div className="flex-1">
               <Link href="/home" onClick={handleLogoClick}>
-                <h1 className="text-2xl font-light text-white tracking-tight cursor-pointer">
-                  Cloudinary Showcase
+                <h1 className="text-3xl font-bold text-gray-200 hover:text-primary transition-colors duration-200 tracking-tight cursor-pointer">
+                  Media Hub
                 </h1>
               </Link>
             </div>
@@ -108,7 +108,7 @@ export default function AppLayout({ children }: { children: ReactNode }) {
         <aside className="bg-gradient-to-b from-gray-800 to-gray-900 w-64 h-full flex flex-col">
           <div className="flex items-center justify-center py-4">
             <ImageIcon className="w-10 h-10 text-primary" />
-            </div>
+          </div>
           <ul className="menu p-4 w-full text-white flex-grow">
             {sidebarItems.map((item) => (
               <li key={item.href} className="mb-2">
