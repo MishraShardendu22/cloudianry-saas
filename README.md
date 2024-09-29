@@ -1,4 +1,6 @@
-# Cloudinary SaaS Application
+#[Cloudinary SaaS Application](https://cloudianry-saas.vercel.app)
+##[Project Account](https://github.com/MishraShardendu22)
+
 
 Welcome to the **Cloudinary SaaS Application**! This innovative web application empowers users to upload and manage images and videos effortlessly. With advanced features for image resizing tailored for social media and Cloudinary AI for video processing, this app ensures users can showcase their content in the best possible light.
 
@@ -23,17 +25,13 @@ Welcome to the **Cloudinary SaaS Application**! This innovative web application 
 
 | Technology       | Icon                                           | Description                                                                                   |
 |------------------|------------------------------------------------|-----------------------------------------------------------------------------------------------|
-| **Next.js**      | ![Next.js](https://img.icons8.com/color/48/000000/nextjs.png) | A React framework for server-rendered applications, enabling efficient routing and SEO.      |
-| **TypeScript**   | ![TypeScript](https://img.icons8.com/color/48/000000/typescript.png) | A superset of JavaScript that adds static types, improving code quality and maintainability. |
-| **Tailwind CSS** | ![Tailwind CSS](https://img.icons8.com/color/48/000000/tailwindcss.png) | A utility-first CSS framework that facilitates rapid UI design with customizable components.   |
-| **Prisma**       | ![Prisma](https://img.icons8.com/color/48/000000/prisma.png) | An ORM (Object-Relational Mapping) tool that simplifies database management and queries.     |
-| **Neon**         | ![Neon](https://img.icons8.com/color/48/000000/neon.png) | A serverless database platform designed for modern applications with automatic scaling.       |
-| **Cloudinary**   | ![Cloudinary](https://img.icons8.com/color/48/000000/cloudinary.png) | A cloud service for managing and optimizing images and videos with powerful AI capabilities. |
-| **Clerk**        | ![Clerk](https://img.icons8.com/color/48/000000/clerk.png) | A user authentication service that provides a secure, hassle-free way to manage user sign-ins. |
-
-## Live Demo
-
-Check out the live application: [Cloudinary SaaS Application](https://cloudianry-saas.vercel.app)
+| **Next.js**      | <img src="https://img.icons8.com/color/48/000000/nextjs.png" width="60" height="40"/> | A React framework for server-rendered applications, enabling efficient routing and SEO.      |
+| **TypeScript**   | <img src="https://img.icons8.com/color/48/000000/typescript.png" width="60" height="40"/> | A superset of JavaScript that adds static types, improving code quality and maintainability. |
+| **Tailwind CSS** | <img src="https://img.icons8.com/color/48/000000/tailwindcss.png" width="60" height="40"/> | A utility-first CSS framework that facilitates rapid UI design with customizable components.   |
+| **Prisma**       | <img src="https://imgs.search.brave.com/cRK8F1OGWghDRsC81lgwNXUtBcQ5-hrtgSSsCdcnVos/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9pY29u/cy52ZXJ5aWNvbi5j/b20vcG5nL28vYnVz/aW5lc3MvdnNjb2Rl/LXByb2dyYW0taXRl/bS1pY29uL3ByaXNt/YS5wbmc" width="60" height="40"/> | An ORM (Object-Relational Mapping) tool that simplifies database management and queries.     |
+| **Neon**         | <img src="https://2023.allthingsopen.org/wp-content/uploads/2023/07/Presenting_Neon.jpg" width="60" height="40"/> | A serverless database platform designed for modern applications with automatic scaling.       |
+| **Cloudinary**   | <img src="https://tse2.mm.bing.net/th?id=OIP.bWgmv2jg_WjLuIMESDqFBQAAAA&pid=Api&P=0&h=180" width="60" height="40"/> | A cloud service for managing and optimizing images and videos with powerful AI capabilities. |
+| **Clerk**        | <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTK7Aw5Oer_-ealLmVOFDzWpvQG77YmCs70rg&s" width="60" height="40"/> | A user authentication service that provides a secure, hassle-free way to manage user sign-ins. |
 
 ## Installation
 
