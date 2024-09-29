@@ -46,7 +46,7 @@ export default function SocialShare() {
         formData.append("file", file);
 
         try {
-            const response = await fetch("/api/image-upload.ts", {
+            const response = await fetch("/api/image-upload", {
                 method: "POST",
                 body: formData,
             });
