@@ -1,5 +1,5 @@
-#[Cloudinary SaaS Application](https://cloudianry-saas.vercel.app)
-##[Project Account](https://github.com/MishraShardendu22)
+# [Cloudinary SaaS Application](https://cloudianry-saas.vercel.app)
+## [Project Account](https://github.com/MishraShardendu22)
 
 
 Welcome to the **Cloudinary SaaS Application**! This innovative web application empowers users to upload and manage images and videos effortlessly. With advanced features for image resizing tailored for social media and Cloudinary AI for video processing, this app ensures users can showcase their content in the best possible light.
