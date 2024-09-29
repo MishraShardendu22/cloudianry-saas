@@ -11,7 +11,7 @@ function VideoUpload() {
     const [isUploading, setIsUploading] = useState(false);
 
     const router = useRouter();
-    const MAX_FILE_SIZE = 70 * 1024 * 1024;
+    const MAX_FILE_SIZE = 1024 * 1024 * 1024;
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
