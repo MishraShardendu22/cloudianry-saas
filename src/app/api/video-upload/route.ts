@@ -1,5 +1,4 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-/* eslint-disable @typescript-eslint/no-unused-vars */
 import { NextRequest, NextResponse } from "next/server";
 import { v2 as cloudinary } from "cloudinary";
 import { PrismaClient } from "@prisma/client";
@@ -34,31 +33,30 @@ export async function POST(request: NextRequest) {
         const description = formData.get("description") as string;
         const originalSize = formData.get("originalSize") as string;
 
-        if(!file){
-            return NextResponse.json({error: "File not found"}, {status: 400})
+        if (!file) {
+            return NextResponse.json({ error: "File not found" }, { status: 400 });
         }
 
-        const bytes = await file.arrayBuffer()
-        const buffer = Buffer.from(bytes)
+        const bytes = await file.arrayBuffer();
+        const buffer = Buffer.from(bytes);
 
-        const result = await new Promise<CloudinaryUploadResult>(
-            (resolve, reject) => {
-                const uploadStream = cloudinary.uploader.upload_stream(
-                    {
-                        resource_type: "video",
-                        folder: "video-uploads",
-                        transformation: [
-                            {quality: "auto", fetch_format: "mp4"},
-                        ]
-                    },
-                    (error, result) => {
-                        if(error) reject(error);
-                        else resolve(result as CloudinaryUploadResult);
-                    }
-                )
-                uploadStream.end(buffer)
-            }
-        )
+        const result = await new Promise<CloudinaryUploadResult>((resolve, reject) => {
+            const uploadStream = cloudinary.uploader.upload_stream(
+                {
+                    resource_type: "video",
+                    folder: "video-uploads",
+                    transformation: [
+                        { quality: "auto", fetch_format: "mp4" },
+                    ]
+                },
+                (error, result) => {
+                    if (error) reject(error);
+                    else resolve(result as CloudinaryUploadResult);
+                }
+            );
+            uploadStream.end(buffer);
+        });
+
         const video = await prisma.video.create({
             data: {
                 title,
@@ -68,7 +66,7 @@ export async function POST(request: NextRequest) {
                 compressedSize: String(result.bytes),
                 duration: result.duration || 0,
             }
-        })
+        });
         return NextResponse.json(video);
     } catch (error) {
         console.log("Upload Video Failed", error);
