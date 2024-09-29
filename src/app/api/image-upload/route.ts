@@ -84,5 +84,4 @@ export async function POST(req : NextRequest){
         console.log("UPload image failed", error)
         return NextResponse.json({error: "Upload image failed"}, {status: 500})
     }
-
 }
