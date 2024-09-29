@@ -25,26 +25,12 @@ function VideoUpload() {
         setIsUploading(true);
         const formData = new FormData();
         formData.append("file", file);
-        formData.append("upload_preset", "your_cloudinary_upload_preset");
+        formData.append("title", title);
+        formData.append("description", description);
+        formData.append("originalSize", file.size.toString());
 
         try {
-            // Upload video directly to Cloudinary
-            const cloudinaryResponse = await axios.post(
-                `https://api.cloudinary.com/v1_1/${process.env.NEXT_PUBLIC_CLOUD_NAME}/video/upload`, 
-                formData
-            );
-
-            // Use the returned URL from Cloudinary to store in your DB
-            const { secure_url } = cloudinaryResponse.data;
-            
-            // Send video URL to your backend API
-            const response = await axios.post("/api/video-upload", {
-                title,
-                description,
-                videoUrl: secure_url,
-                originalSize: file.size,
-            });
-
+            const response = await axios.post("/api/video-upload", formData);
             if (response.status === 200) {
                 toast.success("Video uploaded successfully!");
                 router.push("/home");
