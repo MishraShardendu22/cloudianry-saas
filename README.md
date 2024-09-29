@@ -1,7 +1,6 @@
 # [Cloudinary SaaS Application](https://cloudianry-saas.vercel.app)
 ## [Project Account](https://github.com/MishraShardendu22)
 
-
 Welcome to the **Cloudinary SaaS Application**! This innovative web application empowers users to upload and manage images and videos effortlessly. With advanced features for image resizing tailored for social media and Cloudinary AI for video processing, this app ensures users can showcase their content in the best possible light.
 
 ## Features
@@ -14,6 +13,7 @@ Welcome to the **Cloudinary SaaS Application**! This innovative web application 
   - Seamlessly upload videos and utilize Cloudinary’s powerful processing features.
   - Preview the best part of the video automatically, enhancing user experience and engagement.
   - Compress videos without significant loss of quality, with detailed information on the compression applied, making file management easier.
+  - **Download Option**: Users can download uploaded images and videos for offline access.
 
 - **User Authentication**: 
   - Secure and reliable user authentication through **Clerk**, ensuring that user data is protected and only accessible to authorized individuals.
