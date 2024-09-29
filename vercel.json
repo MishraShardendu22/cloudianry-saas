@@ -1,8 +1,0 @@
-{
-    "functions": {
-      "api/**/*.{js,ts}": {
-        "maxLambdaSize": "50mb"
-      }
-    }
-  }
-  
