@@ -11,7 +11,7 @@ export default function Page() {
         <div className="p-6">
           <h1 className="text-3xl font-bold text-center mb-6 text-purple-300">
           <UserPlus className="inline-block mr-2" />Sign In</h1>
-          <SignIn 
+          <SignIn
             appearance={{
               elements: {
                 formButtonPrimary: 
@@ -31,13 +31,13 @@ export default function Page() {
               },
             }}
           />
-                      <div className="mt-6 text-center">
-                <Link href="/sign-up">
-                    <button className="text-lg font-semibold text-purple-500 hover:bg-purple-600 hover:text-white transition-all duration-300 rounded-lg px-4 py-2 border border-purple-500">
-                    Dont`t have an account? Sign Up
-                    </button>
-                </Link>
-            </div>
+          <div className="mt-6 text-center">
+            <Link href="/sign-up">
+              <button className="text-lg font-semibold text-purple-500 hover:bg-purple-600 hover:text-white transition-all duration-300 rounded-lg px-4 py-2 border border-purple-500">
+                Dont`t have an account? Sign Up
+              </button>
+            </Link>
+          </div>
         </div>
       </Card>
     </div>

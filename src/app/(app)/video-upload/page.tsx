@@ -2,7 +2,7 @@
 import React, {useState} from 'react'
 import axios from 'axios'
 import { useRouter } from 'next/navigation'
-import { toast } from "react-toastify";
+import { toast } from 'react-toastify'
 
 function VideoUpload() {
     const [file, setFile] = useState<File | null>(null)
@@ -33,19 +33,21 @@ function VideoUpload() {
         formData.append("originalSize", file.size.toString());
 
         try {
-            const response = await axios.post("/api/video-upload", formData);
-            if (response.status === 200) {
-                toast.success("Video uploaded successfully!");
-                router.push("/");
-            } else {
-                toast.error("Failed to upload video. Please try again.");
-            }
-        } catch (error) {
-            console.log(error);
-            toast.error("Failed to upload video. Please try again.");
-        } finally {
-            setIsUploading(false);
-        }
+          const response = await axios.post("/api/video-upload", formData);
+      
+          if (response.status === 200) {
+              toast.success("Video uploaded successfully!");
+              router.push("/home");
+          } else {
+              toast.error("Video upload failed. Please try again.");
+          }
+      } catch (error) {
+          console.error(error);
+          toast.error("An error occurred during upload. Please try again.");
+      } finally {
+          setIsUploading(false);
+      }
+      
 
     }
 

@@ -1,9 +1,8 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 "use client";
 import { useState, useEffect, useCallback } from "react";
 import axios from "axios";
-import VideoCard from "@/components/VideoCard"
-import { Video } from "../../types/index"
+import VideoCard from "@/components/VideoCard";
+import { Video } from "../../types/index";
 
 function Home() {
     const [videos, setVideos] = useState<Video[]>([]);
@@ -40,11 +39,11 @@ function Home() {
     }, []);
 
     if (loading) {
-        return <div>Loading...</div>;
+        return <div className="text-indigo-300">Loading...</div>;
     }
 
     return (
-        <div className="container mx-auto p-4">
+        <div className="container mx-auto p-4 bg-gray-900 text-purple-200">
             <h1 className="text-2xl font-bold mb-4">Videos</h1>
             {error && <div className="text-red-500">{error}</div>}
             {videos.length === 0 ? (

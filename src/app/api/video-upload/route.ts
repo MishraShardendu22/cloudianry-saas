@@ -1,33 +1,40 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-/* eslint-disable @typescript-eslint/no-unused-vars */
-import { NextRequest, NextResponse } from "next/server";
-import { v2 as cloudinary } from "cloudinary";
-import { auth } from "@clerk/nextjs/server";
-import { PrismaClient } from "@prisma/client";
+import { NextRequest, NextResponse } from 'next/server';
+import { v2 as cloudinary } from 'cloudinary';
+import { PrismaClient } from '@prisma/client';
 
-const prisma = new PrismaClient();
 
+const prisma = new PrismaClient()
+
+// Configuration
 cloudinary.config({
     cloud_name: process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME,
     api_key: process.env.CLOUDINARY_API_KEY,
-    api_secret: process.env.CLOUDINARY_API_SECRET,
+    api_secret: process.env.CLOUDINARY_API_SECRET // Click 'View Credentials' below to copy your API secret
 });
 
 interface CloudinaryUploadResult {
     public_id: string;
     bytes: number;
-    duration?: number;
-    [key: string]: any;
+    duration?: number
+    [key: string]: any
 }
 
 export async function POST(request: NextRequest) {
+
+
     try {
-        if (!process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME || !process.env.CLOUDINARY_API_KEY || !process.env.CLOUDINARY_API_SECRET) {
-            return NextResponse.json(
-                { message: "Cloudinary not configured" },
-                { status: 500 }
-            );
-        }
+
+        //todo to check user
+
+    if(
+        !process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME ||
+        !process.env.CLOUDINARY_API_KEY ||
+        !process.env.CLOUDINARY_API_SECRET
+    ){
+        return NextResponse.json({error: "Cloudinary credentials not found"}, {status: 500})
+    }
+
 
         const formData = await request.formData();
         const file = formData.get("file") as File | null;
@@ -70,14 +77,13 @@ export async function POST(request: NextRequest) {
                 duration: result.duration || 0,
             }
         })
-        return NextResponse.json(video);
+        return NextResponse.json(video)
+
     } catch (error) {
-        console.log("Upload Video Failed", error);
-        return NextResponse.json(
-            { message: "Upload Video Failed" },
-            { status: 500 }
-        );
-    } finally {
-        await prisma.$disconnect();
+        console.log("UPload video failed", error)
+        return NextResponse.json({error: "UPload video failed"}, {status: 500})
+    } finally{
+        await prisma.$disconnect()
     }
+
 }

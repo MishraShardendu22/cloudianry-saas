@@ -11,7 +11,7 @@ export default function Page() {
           <h1 className="text-3xl font-bold text-center mb-6 text-purple-300">
             <UserPlus className="inline-block mr-2" /> Sign Up
           </h1>
-          <SignUp 
+          <SignUp
             appearance={{
               elements: {
                 formButtonPrimary: 
