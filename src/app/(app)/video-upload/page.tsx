@@ -30,7 +30,7 @@ function VideoUpload() {
         formData.append("originalSize", file.size.toString());
 
         try {
-            const response = await axios.post("/api/video-upload", formData);
+            const response = await axios.post("/api/video-upload.ts", formData);
             if (response.status === 200) {
                 toast.success("Video uploaded successfully!");
                 router.push("/home");
