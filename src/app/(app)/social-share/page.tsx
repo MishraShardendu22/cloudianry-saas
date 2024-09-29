@@ -84,80 +84,78 @@ export default function SocialShare() {
     };
 
     return (
-        <div className="container mx-auto p-4 max-w-4xl bg-gradient-to-r from-purple-800 to-indigo-600">
+        <div className="container mx-auto p-6 max-w-4xl bg-gradient-to-r from-indigo-900 to-purple-800 rounded-lg shadow-lg">
             <ToastContainer />
-            <h1 className="text-3xl font-bold mb-6 text-center text-white">
+            <h1 className="text-5xl font-extrabold mb-8 text-center text-white shadow-lg">
                 Social Media Image Creator
             </h1>
 
-            <div className="card bg-gray-800 text-white rounded-lg shadow-lg">
-                <div className="card-body">
-                    <h2 className="card-title mb-4">Upload an Image</h2>
-                    <div className="form-control">
-                        <label className="label">
-                            <span className="label-text">Choose an image file</span>
-                        </label>
-                        <input
-                            type="file"
-                            onChange={handleFileUpload}
-                            className="file-input file-input-bordered file-input-primary w-full"
-                        />
-                    </div>
-
-                    {isUploading && (
-                        <div className="mt-4">
-                            <progress className="progress progress-primary w-full"></progress>
-                        </div>
-                    )}
-
-                    {uploadedImage && (
-                        <div className="mt-6">
-                            <h2 className="card-title mb-4">Select Social Media Format</h2>
-                            <div className="form-control">
-                                <select
-                                    className="select select-bordered w-full"
-                                    value={selectedFormat}
-                                    onChange={(e) => setSelectedFormat(e.target.value as SocialFormat)}
-                                >
-                                    {Object.keys(socialFormats).map((format) => (
-                                        <option key={format} value={format}>
-                                            {format}
-                                        </option>
-                                    ))}
-                                </select>
-                            </div>
-
-                            <div className="mt-6 relative">
-                                <h3 className="text-lg font-semibold mb-2">Preview:</h3>
-                                <div className="flex justify-center">
-                                    {isTransforming && (
-                                        <div className="absolute inset-0 flex items-center justify-center bg-gray-900 bg-opacity-70 z-10">
-                                            <span className="loading loading-spinner loading-lg"></span>
-                                        </div>
-                                    )}
-                                    <CldImage
-                                        width={socialFormats[selectedFormat].width}
-                                        height={socialFormats[selectedFormat].height}
-                                        src={uploadedImage}
-                                        sizes="100vw"
-                                        alt="transformed image"
-                                        crop="fill"
-                                        aspectRatio={socialFormats[selectedFormat].aspectRatio}
-                                        gravity="auto"
-                                        ref={imageRef}
-                                        onLoad={() => setIsTransforming(false)}
-                                    />
-                                </div>
-                            </div>
-
-                            <div className="card-actions justify-end mt-6">
-                                <button className="btn btn-primary" onClick={handleDownload}>
-                                    Download for {selectedFormat}
-                                </button>
-                            </div>
-                        </div>
-                    )}
+            <div className="bg-gray-900 text-white rounded-lg p-6 shadow-md">
+                <h2 className="text-3xl font-bold mb-4">Upload an Image</h2>
+                <div className="form-control mb-4">
+                    <label className="label text-lg">
+                        <span className="label-text">Choose an image file</span>
+                    </label>
+                    <input
+                        type="file"
+                        onChange={handleFileUpload}
+                        className="file-input file-input-bordered file-input-violet w-full"
+                    />
                 </div>
+
+                {isUploading && (
+                    <div className="mt-4">
+                        <progress className="progress progress-purple w-full"></progress>
+                    </div>
+                )}
+
+                {uploadedImage && (
+                    <div className="mt-6">
+                        <h2 className="text-3xl font-bold mb-4">Select Social Media Format</h2>
+                        <div className="form-control mb-4">
+                            <select
+                                className="select select-bordered select-purple w-full"
+                                value={selectedFormat}
+                                onChange={(e) => setSelectedFormat(e.target.value as SocialFormat)}
+                            >
+                                {Object.keys(socialFormats).map((format) => (
+                                    <option key={format} value={format}>
+                                        {format}
+                                    </option>
+                                ))}
+                            </select>
+                        </div>
+
+                        <div className="relative mb-6">
+                            <h3 className="text-lg font-semibold mb-2">Preview:</h3>
+                            <div className="flex justify-center">
+                                {isTransforming && (
+                                    <div className="absolute inset-0 flex items-center justify-center bg-gray-900 bg-opacity-70 z-10">
+                                        <span className="loading loading-spinner loading-lg"></span>
+                                    </div>
+                                )}
+                                <CldImage
+                                    width={socialFormats[selectedFormat].width}
+                                    height={socialFormats[selectedFormat].height}
+                                    src={uploadedImage}
+                                    sizes="100vw"
+                                    alt="transformed image"
+                                    crop="fill"
+                                    aspectRatio={socialFormats[selectedFormat].aspectRatio}
+                                    gravity="auto"
+                                    ref={imageRef}
+                                    onLoad={() => setIsTransforming(false)}
+                                />
+                            </div>
+                        </div>
+
+                        <div className="flex justify-end">
+                            <button className="btn btn-purple" onClick={handleDownload}>
+                                Download for {selectedFormat}
+                            </button>
+                        </div>
+                    </div>
+                )}
             </div>
         </div>
     );

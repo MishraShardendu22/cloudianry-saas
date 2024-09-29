@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 "use client";
 
 import React, { useState } from "react";
@@ -13,6 +14,7 @@ import {
   ImageIcon,
 } from "lucide-react";
 import Image from "next/image";
+import { toast } from "react-toastify";
 
 const sidebarItems = [
   { href: "/home", icon: LayoutDashboardIcon, label: "Home Page" },
@@ -36,7 +38,11 @@ export default function AppLayout({
   };
 
   const handleSignOut = async () => {
-    await signOut();
+    try {
+      await signOut();
+    } catch (error) {
+      toast.error("Sign out failed. Please try again.");
+    }
   };
 
   return (
@@ -48,8 +54,7 @@ export default function AppLayout({
         checked={sidebarOpen}
         onChange={() => setSidebarOpen(!sidebarOpen)}
       />
-      <div className="drawer-content flex flex-col bg-gray-900"> {/* Darker background */}
-        {/* Navbar */}
+      <div className="drawer-content flex flex-col bg-gray-900">
         <header className="w-full bg-gray-800 shadow-md">
           <div className="navbar max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex-none lg:hidden">
@@ -95,14 +100,13 @@ export default function AppLayout({
             </div>
           </div>
         </header>
-        {/* Page content */}
-        <main className="flex-grow p-6">
-          <div className="max-w-7xl mx-auto w-full text-white">{children}</div> {/* Lighter text */}
+        <main className="flex-grow p-6 bg-gray-900">
+          <div className="max-w-7xl mx-auto w-full text-white">{children}</div>
         </main>
       </div>
       <div className="drawer-side">
         <label htmlFor="sidebar-drawer" className="drawer-overlay"></label>
-        <aside className="bg-gray-800 w-64 h-full flex flex-col"> {/* Darker sidebar background */}
+        <aside className="bg-gradient-to-b from-gray-800 to-gray-900 w-64 h-full flex flex-col">
           <div className="flex items-center justify-center py-4">
             <ImageIcon className="w-10 h-10 text-primary" />
           </div>
@@ -119,7 +123,7 @@ export default function AppLayout({
                   onClick={() => setSidebarOpen(false)}
                 >
                   <item.icon className="w-6 h-6 text-white" />
-                  <span className="text-white">{item.label}</span> {/* Lighter text */}
+                  <span className="text-white">{item.label}</span>
                 </Link>
               </li>
             ))}
@@ -140,3 +144,4 @@ export default function AppLayout({
     </div>
   );
 }
+  
